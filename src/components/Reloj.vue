@@ -4,7 +4,7 @@
             <div id="reloj">{{ display }}</div>
         </div>
         <div class="menu-botones">
-            <button id="control" class="boton" type="button">Start</button>
+            <button id="control" class="boton" type="button" @click="control">{{ botonControlTexto }}</button>
             <button id="reset" class="boton reset" type="reset">Reset</button>
         </div>
     </div>
@@ -16,6 +16,17 @@ export default {
         return{
             display: "00:00",
             running: false,
+            botonControlTexto: "Start",
+        }
+    },
+    methods:{
+        control(){
+            this.running = !this.running
+            if(this.running){
+                this.botonControlTexto = "Stop"
+            }else{
+                this.botonControlTexto = "Start"
+            }
         }
     }
 }
